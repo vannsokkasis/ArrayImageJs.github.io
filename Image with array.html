@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 ;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .profile{
+            width: 300px;
+            height: 350px;
+            
+        }
+        .img{
+            width: 100%;
+            height: 60%;
+            position: relative;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+        }
+        .details{
+            width: 100%;
+            height: 40%;
+        }
+        .icon-popup{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transition: all 0.4s;
+            display: none;
+        }
+        .icon-popup i{
+            font-size: 28px;
+            /* color: white; */
+            font-weight: bold;
+            padding: 10px;
+        }
+        .dark{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.427);
+            transition: all 0.4s;
+            display: none;
+        }
+        .profile:hover .icon-popup{display: block;}
+        .profile:hover .dark{display: block;}
+    </style>
+</head>
+<body>
+    <div class="container bg-body-secondary main-box"></div>
+</body>
+</html>
+<script>
+    var Person=[
+        {name1:"Lisa",sex:"Female", image:"https://assets.teenvogue.com/photos/5f2808c9377e7282120f40fa/16:9/w_2560%2Cc_limit/GettyImages-1177270429.jpg",live:"Korea",position:"K-POP",status:"Single"},
+        {name1:"Rosé",sex:"Female", image:"https://i.pinimg.com/1200x/3a/4e/bd/3a4ebddf8dfb7a1c911d87947f57814d.jpg",live:"USA",position:"K-POP",status:"Single"},
+        {name1:"Jennie",sex:"Female", image:"https://stylecaster.com/wp-content/uploads/2023/06/what-happened-jennie.jpg",live:"Korea",position:"K-POP",status:"Single"},
+        {name1:"Jisoo",sex:"Female", image:"https://lh3.googleusercontent.com/wHuALKG3nmV6mAV94P8OuGuScx16DBUKZWOfO02U3t5uUc-t74HV8kNcWh7eYSzIZI18lswtp1zEJ6g7JsCH9PrtRB_Re3YsfMmVzbDEj-Qcg_g=w1200-h630-rj-pp-e365",live:"Korea",position:"K-POP",status:"Single"},
+        {name1:"Jing Jing",sex:"Female", image:"https://t.vietgiaitri.com/2021/9/9/chia-se-len-fanpage-video-ghep-sieu-dinh-cua-fan-viet-thanh-nu-eimi-fukada-boi-roi-khi-bi-cdm-viet-doi-tri-an-cac-6052818.jpeg",live:"Kuwait",position:"Actress",status:"Single"}
+    ];
+    var take='';
+    for(i in Person){
+        // alert(Person[i]['name1'])
+        take+=`<div class="profile bg-body-tertiary mt-3">
+            <div class="img">
+                <img src="${Person[i]['image']}" alt="">
+                <div class="dark"></div>
+                <div class="icon-popup">
+                    <i class="fab fa-facebook text-info"></i>
+                    <i class="fab fa-instagram text-info"></i>
+                    <i class="fab fa-twitter text-info"></i>
+                </div>
+            </div>
+            <div class="details p-3">
+                <span><b>- Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> ${Person[i]['name1']}</span> <br>
+                <span><b>- Gender &nbsp;&nbsp;&nbsp;:</b> ${Person[i]['sex']}</span> <br>
+                <span><b>- Address &nbsp;&nbsp;:</b> ${Person[i]['live']}</span> <br>
+                <span><b>- Position&nbsp;&nbsp;:</b> ${Person[i]['position']}</span> <br>
+                <span><b>- Status &nbsp;&nbsp;&nbsp;&nbsp;:</b> ${Person[i]['status']}</span> <br>
+            </div>
+        </div>`;
+    }
+    document.querySelector('.main-box').innerHTML=take;
+</script>
